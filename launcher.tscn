@@ -1,0 +1,97 @@
+[gd_scene load_steps=6 format=3 uid="uid://c1q8n4rnd7xsw"]
+
+[ext_resource type="Texture2D" uid="uid://decpii6r7atk3" path="res://images/logo.png" id="1_g682n"]
+[ext_resource type="Texture2D" uid="uid://branfinyio1ah" path="res://images/launcher-content.png" id="2_xmll6"]
+[ext_resource type="Script" path="res://game-launch.gd" id="3_yydkf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bsegm"]
+bg_color = Color(0.137255, 0.137255, 0.137255, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tkcbk"]
+bg_color = Color(0.0862745, 0.0862745, 0.0862745, 1)
+
+[node name="Launcher" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bsegm")
+
+[node name="MarginContainer" type="MarginContainer" parent="Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/MarginContainer"]
+layout_mode = 2
+
+[node name="Logo" type="TextureRect" parent="Background/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("1_g682n")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Panel" type="Panel" parent="Background/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_tkcbk")
+
+[node name="MarginContainer" type="MarginContainer" parent="Background/MarginContainer/VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Background/MarginContainer/VBoxContainer/Panel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="TextureRect" type="TextureRect" parent="Background/MarginContainer/VBoxContainer/Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_xmll6")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/MarginContainer/VBoxContainer/Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 64
+alignment = 1
+
+[node name="Label" type="Label" parent="Background/MarginContainer/VBoxContainer/Panel/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "This is my game description"
+
+[node name="Button" type="Button" parent="Background/MarginContainer/VBoxContainer/Panel/MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+text = "Download"
+script = ExtResource("3_yydkf")
+
+[connection signal="pressed" from="Background/MarginContainer/VBoxContainer/Panel/MarginContainer/HBoxContainer/VBoxContainer/Button" to="Background/MarginContainer/VBoxContainer/Panel/MarginContainer/HBoxContainer/VBoxContainer/Button" method="_on_pressed"]

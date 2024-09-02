@@ -1,0 +1,9 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1725306199
+game-launch.gd::GDScript::-1::1725305457::0::1::::<>Button<>::
+icon.svg::CompressedTexture2D::7041638801440022023::1725148293::1725306200::1::::<><>::
+launcher.tscn::PackedScene::6632809772156841190::1725305457::0::1::::<><>::uid://decpii6r7atk3::::res://images/logo.png<>uid://branfinyio1ah::::res://images/launcher-content.png<>res://game-launch.gd
+README.md::TextFile::-1::1725306087::0::1::::<><>::
+::res://images/::1725151110
+launcher-content.png::CompressedTexture2D::3580429716786119839::1725151083::1725306200::1::::<><>::
+logo.png::CompressedTexture2D::7445071691273213724::1725149219::1725306200::1::::<><>::
